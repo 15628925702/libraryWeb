@@ -13,7 +13,8 @@
 <link href="css/login.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="<%=path%>/js/jquery-3.3.1.min.js"></script>
 <body>
-	<div id="top"></div> 
+    <%@ include file="top.jsp" %>
+
 	<div id="main">
 		<img src="images/login.jpg" id="main_bg"/>
 		<div id="login_block">
@@ -34,13 +35,21 @@
 					<tr>
 						<td class="title">用户类型:</td>
 						<td class="input">
-							<input type="radio" name="type" value="reader" checked="checked"/>&nbsp;&nbsp;读者&nbsp;&nbsp;
-							<input type="radio" name="type" value="admin"/>&nbsp;&nbsp;管理员
+							<label class="radio-label">
+								<input type="radio" name="type" value="reader" class="radio-input" checked="checked"/>
+								读者
+							</label>
+							<label class="radio-label">
+								<input type="radio" name="type" value="admin" class="radio-input"/>
+								管理员
+							</label>
 						</td>
 					</tr>
+
+
 					<tr>
 						<td colspan="2">
-							<input class="btn" type="submit" value="登录"/>
+							<input class="btn" type="submit" value="登 录"/>
 							<div class="btn" id="reset">重&nbsp;&nbsp;置</div>
 						</td>
 					</tr>
@@ -48,13 +57,7 @@
 			</form>
 		</div>
 	</div>
-	<div id="footer">
-		<div class="foot_content">
-			CopyRight &copy; 2008 www.**********.com 西安市*****有限公司
-		</div>
-		<div class="foot_content">
-			版权所有 Library V1.0
-		</div>
-	</div>
+
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

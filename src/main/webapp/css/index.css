@@ -1,89 +1,157 @@
-*{
-	font-family: Microsoft YaHei;
+* {
+	font-family: 'Microsoft YaHei', sans-serif; /* 现代中文字体 */
+	margin: 0;
+	padding: 0;
 }
 
-#main{
-	width: 978px;
+#main {
+	width: 1100px;
 	height: 650px;
-	border: 1px solid #EDC56F;
+	border: 1px solid rgb(84, 193, 245); /* 使用主基调颜色 */
 	position: relative;
+	background-color: rgb(173, 226, 255); /* 更浅的蓝色背景 */
+	border-radius: 8px; /* 圆角 */
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
 }
 
-.navigation{
-	width:100%;
-	height: 30px;
+.navigation {
+	width: 100%;
+	height: 40px; /* 增加高度以提高可点击区域 */
+	background-color: rgb(135, 209, 255); /* 较深的蓝色背景 */
 	position: relative;
-	left: 10px;
-	top:5px;
-	font-size: 13px;
+	padding-left: 10px;
+	padding-top: 5px;
+	font-size: 14px;
+	color: #333; /* 深色文本 */
+	border-radius: 4px; /* 圆角 */
+	transition: font-weight 0.3s; /* 字体粗细过渡效果 */
 }
 
-.img_block{
+.img_block {
 	width: 99%;
 	height: 67px;
 }
 
-.img{
+.img {
 	width: 100%;
 	height: 100%;
 }
 
-.table{
-	width:100%;
-	font-size: 13px;
+.table {
+	width: 100%;
+	font-size: 14px; /* 字体略大 */
 	margin-top: 10px;
+	border-collapse: collapse; /* 合并边框 */
 }
 
-table tr{
+table tr {
 	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s; /* 背景色和变换过渡效果 */
 }
 
-table tr:hover{
-	background-color: #F0F0F0;
+table tr:hover {
+	background-color: rgb(200, 235, 255); /* 悬停时的较浅蓝色 */
+	transform: scale(1.02); /* 悬停时放大 */
 }
 
-table td{
-	height:40px;
+table td {
+	height: 40px;
 	text-align: center;
+	border-bottom: 1px solid rgb(173, 226, 255); /* 添加底部边框 */
 }
 
-#pageControl{
+#pageControl {
 	width: 100%;
 	height: auto;
 	position: relative;
-	position:absolute;
-	bottom:10px;
-	font-size: 13px;
+	position: absolute;
+	bottom: 10px;
+	font-size: 14px; /* 字体略大 */
+	color: #333; /* 深色文本 */
 }
 
-.pageControl_item{
-	width:120px;
+
+.pageControl_item_disabled {
+	color: gray;
+}
+.pageControl_item {
+	width: 120px;
 	height: 30px;
 	text-align: center;
 	line-height: 30px;
 	float: right;
 	margin-right: 30px;
 	cursor: pointer;
+	background-color: rgb(135, 209, 255); /* 较深的蓝色背景 */
+	border-radius: 4px; /* 圆角 */
+	transition: background-color 0.3s, font-weight 0.3s, transform 0.3s; /* 背景色、字体粗细和变换过渡效果 */
 }
 
-.pageControl_item_disabled{
-	color:gray;
+.pageControl_item:hover {
+	background-color: rgb(84, 193, 245); /* 悬停时主基调颜色 */
+	font-weight: bold; /* 悬停时字体变粗 */
+	transform: scale(1.1); /* 悬停时放大 */
 }
 
-.hr{
-	border:none;
-	border-top:1px solid #DFA40C;
+
+.hr {
+	border: none;
+	border-top: 1px solid rgb(84, 193, 245); /* 使用主基调颜色 */
 	height: 1px;
 	margin-top: 40px;
 	width: 96%;
 }
 
-#readerBlock{
-	width:150px;
+#readerBlock {
+	width: 150px;
 	height: 100%;
 	float: right;
 	margin-right: 30px;
 	text-align: center;
 	line-height: 30px;
-	font-size: 13px;
+	font-size: 14px; /* 字体略大 */
+	color: #333; /* 深色文本 */
+}
+
+table tr {
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s; /* 背景色和变换过渡效果 */
+}
+
+table tr:hover {
+	background-color: rgb(200, 235, 255); /* 悬停时的较浅蓝色 */
+	transform: scale(1.02); /* 悬停时放大 */
+}
+
+table tr:hover td {
+	font-weight: bold; /* 悬停时字体变粗 */
+}
+
+.borrow-button {
+	display: inline-block; /* 使链接表现得像按钮 */
+	padding: 5px 10px; /* 内边距，增加按钮的大小 */
+	background-color: rgb(69, 134, 215); /* 按钮背景颜色 */
+	color: white; /* 按钮文字颜色 */
+	border-radius: 4px; /* 圆角 */
+	text-decoration: none; /* 去掉下划线 */
+	transition: background-color 0.3s, transform 0.3s; /* 背景色和变换过渡效果 */
+}
+
+.borrow-button:hover {
+	background-color: rgb(135, 209, 255); /* 悬停时的背景颜色 */
+	transform: scale(1.05); /* 悬停时稍微放大 */
+}
+
+.status-label {
+	display: inline-block; /* 使状态文本表现得像按钮 */
+	padding: 5px 10px; /* 内边距，增加标签的大小 */
+	background-color: rgba(135, 209, 255, 0.6); /* 背景颜色，稍微透明 */
+	border-radius: 4px; /* 圆角 */
+	transition: background-color 0.3s, transform 0.3s; /* 背景色和变换过渡效果 */
+	text-align: center; /* 内容居中 */
+}
+
+.status-label:hover {
+	background-color: rgba(135, 209, 255, 0.9); /* 悬停时的背景颜色 */
+	transform: scale(1.05); /* 悬停时稍微放大 */
 }

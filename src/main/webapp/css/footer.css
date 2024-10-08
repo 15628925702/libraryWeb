@@ -1,15 +1,38 @@
-#foot_main{
-	width: 978px;
-	height: 138px;
-}
-
-#foot_title{
-	width: 100%;
-	height: 10px;
-	background: url(../images/copyright_t.gif);
-}
-
-.foot_content{
-	text-align: center;
+#foot_main {
+	width: 1060px; /* 更新为新的宽度 */
+	height: 200px; /* 更新为新的高度 */
+	background-image: url('../images/backcolor.jpg'); /* 确保路径正确 */
+	background-size: cover; /* 使背景图片覆盖整个区域 */
+	background-position: center; /* 将背景图片居中显示 */
+	background-repeat: no-repeat; /* 防止背景图片重复 */
+	font-family: 'Helvetica Neue', Arial, sans-serif; /* 使用更现代的字体 */
+	padding: 20px; /* 增加内边距，提供更多空间 */
+	color: #fff; /* 设置文本颜色为白色以提高对比度 */
+	text-align: center; /* 内容居中 */
+	transition: transform 0.3s ease, background-color 0.3s ease; /* 添加过渡效果 */
 	margin-top: 10px;
+}
+
+#foot_main:hover {
+	transform: translateY(-10px); /* 上浮10px，注意这里应该是负值以实现向上浮动 */
+	background-color: rgba(240, 240, 240, 0.8); /* 悬停时背景色变化，使用半透明色以保持背景图片的可见性 */
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 添加文字阴影以增强可读性 */
+}
+
+
+
+.foot_content {
+	margin-top: 15px; /* 上边距，增大与其他内容的间距 */
+	font-size: 18px; /* 设置字体大小为18px */
+	font-weight: 500; /* 设置字重为中等，使文本更醒目 */
+	line-height: 1.6; /* 设置行高以增加可读性 */
+	letter-spacing: 1px; /* 增加字母间距，提升可读性 */
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* 添加文字阴影，使文本更突出 */
+	transition: transform 0.3s, text-shadow 0.3s; /* 添加过渡效果 */
+}
+
+
+.foot_content:hover {
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* 增加文字阴影效果 */
+	transform: translateY(-3px); /* 向上浮动3px */
 }

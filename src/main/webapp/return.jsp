@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  var pages = parseInt($("#pages").html());
 				  var page = parseInt($("#currentPage").html());
 				  if(page == pages){
-					  off('click');
+					  return;
 				  }
 				  page++;
 				  location.href = "/admin?method=getBorrowed&page="+page;
@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  $("#previous").click(function () {
 				  var page = parseInt($("#currentPage").html());
 				  if(page == 1){
-					  off('click');
+					  return;
 				  }
 				  page--;
 				  location.href = "/admin?method=getBorrowed&page="+page;
@@ -62,12 +62,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	<div id="main">
 		<div class="navigation">
-				当前位置:&nbsp;&nbsp;<a href="/admin?page=1">借书管理</a>
-				<div id="readerBlock">欢迎回来&nbsp;:${admin.username }&nbsp;<a href="/logout">注销</a></div>
+			当前位置:&nbsp;&nbsp;<a class="borrow-button" href="/admin?method=getBorrowed&page=1">还书管理</a>
+			<div id="readerBlock">欢迎回来&nbsp;:${admin.username }&nbsp;<a href="/logout">注销</a></div>
 		</div>
-		<div class="img_block">
-			<img src="images/main_booksort.gif" class="img" />
-		</div>
+
 		
 		<table class="table" cellspacing="0">
 			<tr>
@@ -112,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					${borrow.returnTime }
 				</td>
 				<td>
-					<a href="/admin?method=handle&id=${borrow.id }&state=3">归还</a>
+					<a href="/admin?method=handle&id=${borrow.id }&state=3" class="borrow-button">归还</a>
 				</td>
 			</tr>
 			</c:forEach>

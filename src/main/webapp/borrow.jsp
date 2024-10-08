@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  var pages = parseInt($("#pages").html());
 				  var page = parseInt($("#currentPage").html());
 				  if(page == pages){
-					  off('click');
+					  return;
 				  }
 				  page++;
 				  location.href = "/book?method=findAllBorrow&page="+page;
@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  $("#previous").click(function () {
 				  var page = parseInt($("#currentPage").html());
 				  if(page == 1){
-					  off('click');
+					  return;
 				  }
 				  page--;
 				  location.href = "/book?method=findAllBorrow&page="+page;
@@ -62,12 +62,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	<div id="main">
 		<div class="navigation">
-				当前位置:&nbsp;&nbsp;<a href="/book?page=1">首页</a>
+				当前位置:&nbsp;&nbsp;<a class="borrow-button"  href="/book?page=1">首页</a>
 				<div id="readerBlock">欢迎回来&nbsp;:${reader.name }&nbsp;<a href="/logout">注销</a></div>
 		</div>
-		<div class="img_block">
-			<img src="images/main_booksort.gif" class="img" />
-		</div>
+
 		
 		<table class="table" cellspacing="0">
 			<tr>
@@ -95,18 +93,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>${borrow.returnTime}</td>
 					<td>
 						<c:if test="${borrow.state == 0}">
-							<font color="black">未审核</font>
+							<span class="status-label" style="color: black;">未审核</span>
 						</c:if>
 						<c:if test="${borrow.state == 1}">
-							<font color="green">审核通过</font>
+							<span class="status-label" style="color: green;">审核通过</span>
 						</c:if>
 						<c:if test="${borrow.state == 2}">
-							<font color="red">未通过</font>
+							<span class="status-label" style="color: red;">未通过</span>
 						</c:if>
 						<c:if test="${borrow.state == 3}">
-							<font color="yellow">已归还</font>
+							<span class="status-label" style="color: yellow;">已归还</span>
 						</c:if>
 					</td>
+
 				</tr>
 			</c:forEach>
 			

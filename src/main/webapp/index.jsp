@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<link href="css/index.css" type="text/css" rel="stylesheet">
+	<link href="css/index.css" type="text/css" rel="stylesheet"> 
 	 
   	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
   	<script type="text/javascript">
@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				var pages = parseInt($("#pages").html());
 				var page = parseInt($("#currentPage").html());
 				if(page == pages){
-					off('click');
+					return;
 				}
 				page++;
 				location.href = "/book?page="+page;
@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$("#previous").click(function () {
 				var page = parseInt($("#currentPage").html());
 				if(page == 1){
-					off('click');
+					return;
 				}
 				page--;
 				location.href = "/book?page="+page;
@@ -61,13 +61,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   	<div id="main">
 		<div class="navigation">
-				当前位置:&nbsp;&nbsp;<a href="book.do">首页</a>
-				<div id="readerBlock">欢迎回来&nbsp;:<a href="/book?method=findAllBorrow&page=1">${sessionScope.reader.name }</a>&nbsp;<a href="/logout">注销</a></div>
+			当前位置:&nbsp;&nbsp;<a href="/book?page=1" class="borrow-button">首页</a>
+			<div id="readerBlock">
+				欢迎回来&nbsp;:
+				<a href="/book?method=findAllBorrow&page=1 ">${sessionScope.reader.name}</a>&nbsp;
+				<a href="/logout" >注销</a>
+			</div>
 		</div>
-		<div class="img_block">
-			<img src="images/main_booksort.gif" class="img" />
-		</div>
-		
+
 		<table class="table" cellspacing="0">
 			<tr>
 				<td>编号</td>
@@ -90,13 +91,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>${book.price}</td>
 					<td>${book.bookcase.name}</td>
 					<td>
-						<a href="/book?method=addBorrow&bookid=${book.id}">借阅</a>
+						<a href="/book?method=addBorrow&bookid=${book.id}" class="borrow-button">借阅</a>
 					</td>
+
 				</tr>
 			</c:forEach>
 			
 		</table>
-		<hr class="hr"/>
+		<hr class="hr"/>''
+		00
 		<div id="pageControl">
 			<div class="pageControl_item">每页<font id="dataPrePage">${dataPrePage }</font>条数据</div>
 			<div class="pageControl_item" id="last">最后一页</div>
